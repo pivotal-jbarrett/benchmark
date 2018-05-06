@@ -120,6 +120,8 @@ if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
     set(CMAKE_SHARED_LINKER_FLAGS_MINSIZEREL "${CMAKE_SHARED_LINKER_FLAGS_MINSIZEREL} /LTCG")
     set(CMAKE_EXE_LINKER_FLAGS_MINSIZEREL "${CMAKE_EXE_LINKER_FLAGS_MINSIZEREL} /LTCG")
   endif()
+elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "SunPro")
+  add_cxx_compiler_flag(-std=c++11)
 else()
   # Try and enable C++11. Don't use C++14 because it doesn't work in some
   # configurations.
